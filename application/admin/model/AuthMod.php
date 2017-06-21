@@ -13,7 +13,7 @@ use think\Db;
 use think\Session;
 class AuthMod extends Model
 {
-    protected $table='user';
+
     public function login($data)
     {
         if(isset($data['mobile'])){
