@@ -21,6 +21,10 @@ class Auth extends Controller
         header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
 
         $loginup = new AuthMod();
+        $data = Request::instance()->post();
+        //$data_decoded = json_decode($data[0],true);
+        //var_dump($data);
+
         $username = input('username');
         $password = input('password');
         $mobile = input('mobile');
@@ -55,6 +59,7 @@ class Auth extends Controller
         }elseif($status ==33){
             return json(['status' => '33','msg' => '注册失败，密码不一致！！']);
         }
+
 
     }
 
