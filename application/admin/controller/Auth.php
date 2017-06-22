@@ -15,9 +15,9 @@ class Auth extends Controller
 {
     public function register()
     {
-        //header('Access-Control-Allow-Origin : *');
-        //header('Access-Control-Allow-Methods : POST,GET,PUT,DELETE,OPTIONS');
-        //header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
+        header('Access-Control-Allow-Origin : *');
+        header('Access-Control-Allow-Methods : POST,GET,PUT,DELETE,OPTIONS');
+        header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
         $loginup = new AuthMod();
         $username = input('username');
         $password = input('password');
