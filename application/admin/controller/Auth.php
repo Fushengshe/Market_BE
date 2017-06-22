@@ -13,11 +13,13 @@ use think\Request;
 use app\admin\model\AuthMod;
 class Auth extends Controller
 {
+
     public function register()
     {
         header('Access-Control-Allow-Origin : *');
         header('Access-Control-Allow-Methods : POST,GET,PUT,DELETE,OPTIONS');
         header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
+
         $loginup = new AuthMod();
         $username = input('username');
         $password = input('password');
@@ -38,7 +40,7 @@ class Auth extends Controller
                 'updated_at' => date("Y-m-d"),
                 'salt' => $salt,
             ];
-            \think\Db::table('mk_user')->insert($data);
+            \think\Db::table('user')->insert($data);
             return json(['status' => '1','msg' => '注册成功！']);
         }elseif($status == 5){
             return json(['status' => '5','msg' => '注册失败，用户名已存在！']);
