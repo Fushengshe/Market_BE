@@ -41,7 +41,7 @@ class AuthMod extends Model
             return json(['code'=>2,'msg'=>'用户不存在']);
         }
     }
-    public static function setToken($id)
+    public function setToken($id)
     {
         $str = md5(uniqid(md5(microtime(true)),true));
         $str = sha1($str);
@@ -54,12 +54,14 @@ class AuthMod extends Model
         return $token;
     }
 
-    public static function checkTokens($token)
+    public function checkTokens($token)
     {
         $res = Db::table('user')
-            ->where('token',$token)
+            ->where('token','=',$token)
             ->select();
-        if ($res[0][$token]==$token){
+        if(empty($res[0])){
+            return 90002;
+        }else if ($res[0]['token']==$token){
             if (time() - $res[0]['token_exp'] > 0)
             {
                 return 90003;  //token长时间未使用而过期，需重新登陆
@@ -80,8 +82,6 @@ class AuthMod extends Model
 
     }
     public function signup($data){
-//        $admin_by_mobile  = \think\Db::name('user')->where('mobile','=',$mobile)->find();
-//        $admin_by_username  = \think\Db::name('user')->where('username','=',$username)->find();
         $validate = validate('Auth');
         if($validate->check($data)){
             //数据验证通过，进行查重。用户名以及电话
@@ -102,7 +102,7 @@ class AuthMod extends Model
             }else{
                 $user['username'] = $data['username'];
                 $user['salt'] = rand(1000,9999);
-                $user['password'] = sha1(md5($data['password'],$user['salt']));
+                $user['password'] = sha1(md5($data['password'].$user['salt']));
                 $user['mobile'] = $data['mobile'];
                 $user['created_at'] = date("Y:m:d",time());
                 $user['updated_at'] = date("Y:m:d",time());
@@ -120,15 +120,12 @@ class AuthMod extends Model
                     return $msg;
                 }
             }
-
         }else{
             $err_msg = $validate->getError();
             $return['code'] = 1;
             $return['err_msg'] = $err_msg;
             return $return;
         }
-
-
     }
 
 }

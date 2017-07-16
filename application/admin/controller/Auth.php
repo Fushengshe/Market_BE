@@ -46,7 +46,7 @@ class Auth extends Controller
             }else if ($res['code'] == 0){
                 return json($res);
             }else{
-                
+
             }
         }else{
             return json(['code'=>2,'msg'=>'非法调用']);
@@ -77,9 +77,38 @@ class Auth extends Controller
             return $my->login(input('post.'));
         }
     }
-    public function logout()
+    public function validateToken()
     {
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            $url       = $_SERVER["HTTP_REFERER"];   //获取完整的来路URL
+            $str   = str_replace("http://", "", $url);  //去掉http://
+            $strdomain = explode("/", $str);               // 以“/”分开成数组
+            $domain    = $strdomain[0];              //取第一个“/”以前的字符
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: http://".$domain);
+            header("Access-Control-Allow-Headers: content-type");
+        } else {
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: content-type");
+        }
 
+
+        if(Request::instance()->isGet()){
+            $Auth = new AuthMod();
+            $token = input('get.token');
+            $res = $Auth -> checkTokens($token);
+            if($res == 90001){
+                return json(['code'=>0,'msg'=>'token正常','token'=>$token]);
+            }else if($res == 90003){
+                return json(['code'=>1,'msg'=>'token过期，请重新登录','token'=>$token]);
+            }else if($res == 90002){
+                return json(['code'=>1,'msg'=>'token错误，请重新登录','token'=>$token]);
+            }
+
+        }else{
+
+        }
     }
 
 
