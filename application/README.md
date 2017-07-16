@@ -22,7 +22,7 @@ token(string) | 传入token  | 8fafecf4a5448d83944a57b3a9636caaae94f71c
 验证失败返回
 
 `{"code":1,"msg":"token错误，请重新登录","token":"8fafecf4a5448d83944a57b3a9636caaae94f71"}`
-`{"code":1,"msg":"token过期，请重新登录","token":"8fafecf4a5448d83944a57b3a9636caaae94f71"}`
+`{"code":2,"msg":"token过期，请重新登录","token":"8fafecf4a5448d83944a57b3a9636caaae94f71"}`
 
 
 

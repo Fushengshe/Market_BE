@@ -103,7 +103,7 @@ class Auth extends Controller
             }else if($res == 90003){
                 return json(['code'=>1,'msg'=>'token过期，请重新登录','token'=>$token]);
             }else if($res == 90002){
-                return json(['code'=>1,'msg'=>'token错误，请重新登录','token'=>$token]);
+                return json(['code'=>2,'msg'=>'token错误，请重新登录','token'=>$token]);
             }
 
         }else{
