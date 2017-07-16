@@ -33,11 +33,11 @@ class AuthMod extends Model
                 return json(['code'=>0,'data'=>['user'=>['userId'=>$db[0]['id'],'mobile'=>$data['mobile']]],'token'=>$token]);
             }
             else{
-                return json(['code'=>0,'msg'=>'密码错误']);
+                return json(['code'=>1,'msg'=>'密码错误']);
             }
         }
         else{
-            return json(['code'=>0,'msg'=>'用户不存在']);
+            return json(['code'=>2,'msg'=>'用户不存在']);
         }
     }
     public static function setToken($id)

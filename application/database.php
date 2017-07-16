@@ -19,7 +19,7 @@ return [
     // 用户名
     'username'        => 'remote',
     // 密码
-    'password'        => 'root',
+    'password'        => 'guolhe521741',
     // 端口
     'hostport'        => '',
     // 连接dsn
