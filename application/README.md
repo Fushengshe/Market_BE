@@ -7,6 +7,7 @@
 >http://123.206.18.103/Market_BE/public/index.php/admin/auth/validateToken?token=8fafecf4a5448d83944a57b3a9636caaae94f71c
 
 数据传输方式：GET
+
 数据传输格式为：JSON
 
 
