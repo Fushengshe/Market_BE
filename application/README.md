@@ -12,7 +12,7 @@
 
 参数(类型) | 说明 | 示例
 ----|------|----
-mobile(string) | 传入用户名  | 15933445710
+mobile(string) | 传入手机号  | 15933445710
 password(string) | 传入密码  | 123456
 
 登录成功将返回
@@ -32,6 +32,34 @@ password(string) | 传入密码  | 123456
 
 如果登录失败将返回
 
-`{"status":1,"msg":"密码错误"}`
-`{"status":2,"msg":"用户不存在"}`
+`{"code":1,"msg":"密码错误"}`
+`{"code":1,"msg":"用户不存在"}`
+
+
+###用户注册
+>http://123.206.18.103/Market_BE/public/index.php/admin/auth/register
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+参数(类型) | 说明 | 示例
+----|------|----
+username(string) | 传入用户名  | zhangqirong
+password(string) | 传入密码  | 123456
+confirm(string) | 传入重复密码  | 123456
+mobile(string) | 传入手机  | 15603302558
+
+手机号必须唯一，用户名必须唯一，密码与确认密码必须一致
+
+注册成功将返回：
+
+`{"code":0,"msg":"注册成功"}`
+
+注册数据错误将返回例如
+
+`{"code":1,"msg":"用户名已经存在"}`
+`{"code":1,"msg":"手机已经注册"}`
+
+
+
 
