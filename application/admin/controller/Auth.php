@@ -16,10 +16,19 @@ class Auth extends Controller
 
     public function register()
     {
-        header('Access-Control-Allow-Origin : *');
-        header('Access-Control-Allow-Methods : POST,GET,PUT,DELETE,OPTIONS');
-        header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
-
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            $url = $_SERVER["HTTP_REFERER"];   //获取完整的来路URL
+            $str = str_replace("http://", "", $url);  //去掉http://
+            $strdomain = explode("/", $str);               // 以“/”分开成数组
+            $domain = $strdomain[0];              //取第一个“/”以前的字符
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: http://".$domain);
+            header("Access-Control-Allow-Headers: content-type");
+        } else {
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: content-type");
+        }
         $loginup = new AuthMod();
         $data = Request::instance()->post();
         //$data_decoded = json_decode($data[0],true);
@@ -65,10 +74,19 @@ class Auth extends Controller
 
     public function login()
     {
-        header('Access-Control-Allow-Origin : *');
-        header('Access-Control-Allow-Methods : POST,GET,PUT,DELETE,OPTIONS');
-        header('Access-Control-Allow-Headers : token,accept,content-type,X-Requested-With');
-
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            $url = $_SERVER["HTTP_REFERER"];   //获取完整的来路URL
+            $str = str_replace("http://", "", $url);  //去掉http://
+            $strdomain = explode("/", $str);               // 以“/”分开成数组
+            $domain = $strdomain[0];              //取第一个“/”以前的字符
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: http://".$domain);
+            header("Access-Control-Allow-Headers: content-type");
+        } else {
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: content-type");
+        }
         if(Request::instance()->isPost()) {
             $my = new AuthMod();
             return $my->login(input('post.'));
