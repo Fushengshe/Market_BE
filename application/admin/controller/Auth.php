@@ -22,13 +22,19 @@ class Auth extends Controller
             $str   = str_replace("http://", "", $url);  //去掉http://
             $strdomain = explode("/", $str);               // 以“/”分开成数组
             $domain    = $strdomain[0];              //取第一个“/”以前的字符
-            header("Access-Control-Allow-Credentials: true");
-            header("Access-Control-Allow-Origin: http://".$domain);
-            header("Access-Control-Allow-Headers: content-type");
-        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: content-type");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
+        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
         }
         $loginup = new AuthMod();
         if(Request::instance()->isPost()){
@@ -63,13 +69,19 @@ class Auth extends Controller
             $str   = str_replace("http://", "", $url);  //去掉http://
             $strdomain = explode("/", $str);               // 以“/”分开成数组
             $domain    = $strdomain[0];              //取第一个“/”以前的字符
-            header("Access-Control-Allow-Credentials: true");
-            header("Access-Control-Allow-Origin: http://".$domain);
-            header("Access-Control-Allow-Headers: content-type");
-        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: content-type");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
+        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
         }
 
         if(Request::instance()->isPost()) {
@@ -84,13 +96,19 @@ class Auth extends Controller
             $str   = str_replace("http://", "", $url);  //去掉http://
             $strdomain = explode("/", $str);               // 以“/”分开成数组
             $domain    = $strdomain[0];              //取第一个“/”以前的字符
-            header("Access-Control-Allow-Credentials: true");
-            header("Access-Control-Allow-Origin: http://".$domain);
-            header("Access-Control-Allow-Headers: content-type");
-        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: content-type");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
+        } else {
+            header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
+            header("Access-Control-Allow-Credentials: true");
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+
         }
 
 
