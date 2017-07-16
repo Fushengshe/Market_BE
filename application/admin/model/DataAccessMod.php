@@ -9,7 +9,7 @@
 namespace app\admin\model;
 use think\Model;
 use think\Db;
-use think\Session;
+
 
 class DataAccessMod extends Model
 {
@@ -20,7 +20,7 @@ class DataAccessMod extends Model
             ->select();
         if (time() - $res[0]['token_exp'] > 0)
         {
-            return json(['status'=>90003,'msg'=>'token验证失败!']);;  //token长时间未使用而过期，需重新登陆
+            return json(['status'=>90003,'msg'=>'token验证失败!']);  //token长时间未使用而过期，需重新登陆
         }
         else
         {
