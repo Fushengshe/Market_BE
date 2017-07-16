@@ -8,6 +8,8 @@
 
 数据传输方式：GET
 数据传输格式为：JSON
+
+
 参数(类型) | 说明 | 示例
 ----|------|----
 token(string) | 传入token  | 8fafecf4a5448d83944a57b3a9636caaae94f71c
