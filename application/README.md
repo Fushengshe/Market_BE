@@ -1,10 +1,10 @@
 # 自推荐－后端API文档
 
 
-##正片开始
+## 正片开始
 
-##Token的单独验证接口
->http://123.206.18.103/Market_BE/public/index.php/admin/auth/validateToken?token=8fafecf4a5448d83944a57b3a9636caaae94f71c
+## Token的单独验证接口
+> http://123.206.18.103/Market_BE/public/index.php/admin/auth/validateToken?token=8fafecf4a5448d83944a57b3a9636caaae94f71c
 
 数据传输方式：GET
 
@@ -27,9 +27,9 @@ token(string) | 传入token  | 8fafecf4a5448d83944a57b3a9636caaae94f71c
 
 
 
-##用户注册登录
-###用户的登录
->http://123.206.18.103/Market_BE/public/index.php/admin/auth/login
+## 用户注册登录
+### 用户的登录
+> http://123.206.18.103/Market_BE/public/index.php/admin/auth/login
 
 数据传输方式为：POST
 
@@ -61,8 +61,8 @@ password(string) | 传入密码  | 123456
 `{"code":1,"msg":"用户不存在"}`
 
 
-###用户注册
->http://123.206.18.103/Market_BE/public/index.php/admin/auth/register
+### 用户注册
+> http://123.206.18.103/Market_BE/public/index.php/admin/auth/register
 数据传输方式：POST
 
 数据传输格式为：JSON
