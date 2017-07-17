@@ -25,14 +25,14 @@ class Auth extends Controller
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         } else {
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         }
@@ -72,14 +72,14 @@ class Auth extends Controller
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         } else {
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         }
@@ -99,14 +99,14 @@ class Auth extends Controller
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         } else {
             header('Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS');
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+            header('Access-Control-Allow-Headers: token,accept,content-type,X-Requested-With');
 
 
         }

@@ -31,7 +31,7 @@ class AuthMod extends Model
             $userInfo = $this->where('password',sha1(md5($data['password'].$db[0]['salt'])))->find();
             if($userInfo){
                 $token=AuthMod::setToken($db[0]['id']);
-                return json(['code'=>0,'data'=>['user'=>['userId'=>$db[0]['id'],'mobile'=>$data['mobile']]],'token'=>$token]);
+                return json(['code'=>0,'data'=>['user'=>['userId'=>$db[0]['id'],'username'=>$db[0]['username'],'mobile'=>$data['mobile']]],'token'=>$token]);
             }
             else{
                 return json(['code'=>1,'msg'=>'密码错误']);
