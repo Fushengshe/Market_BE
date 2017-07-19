@@ -15,25 +15,25 @@ class Goods extends Controller
     public function add()
     {
         $goods = new GoodsMod();
-        $goods->add();
+        return $goods->add();
     }
 
     public function edit()
     {
         $goods = new GoodsMod();
-        $goods->edit();
+        return $goods->edit();
     }
 
     public function del()
     {
         $goods = new GoodsMod();
-        $goods->del();
+        return $goods->del();
     }
 
     public function show()
     {
         $goods = new GoodsMod();
-        $goods->show();
+        return $goods->show();
     }
 
 }
