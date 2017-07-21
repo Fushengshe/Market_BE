@@ -145,41 +145,19 @@ verify(string) | 传入验证码  | 123456
 
 参数(类型) | 说明 | 示例
 ----|------|----
-
 goods_id(int) | 传入goods_id，可不填  | 1
-
 shop_id(int) | 传入shop_id，必填  | 1
-
 cat_id(string) | 传入cat_id，必填  | 1
-
 goods_name(string) | 传入goods_name，必填   | 衬衫
-
 goods_price(int) | 传入goods_price，必填   | 84
-
 goods_click(int) | 传入goods_click  | 10
-
 goods_desc(string) | 传入goods_desc  | 这是衬衫
-
-goods_img(string) | 传入goods_img  | /public/static/img/1.jpg
-
+goods_img\[\](file) | 传入goods_img[],可上传多个图片  | /public/static/img/1.jpg
 is_on_sale(bool) | 传入is_on_sale  | 1
-
 sales_volume(string) | 传入sales_volume  | 100
-
 goods_location(string) | 传入goods_location  | goods_location
-
 goods_weight(string) | 传入goods_weight  | 50g
-
 goods_size(string) | 传入goods_size  | 100cm*100cm
-
-comment_num(int) | 传入comment_num  | 10
-
-good_comment_num(int) | 传入good_comment_num  | 8
-
-bad_comment_num(int) | 传入bad_comment_num  | 2
-
-middle_comment_num(int) | 传入middle_comment_num  | 0
-
 goods_distance(string) | 传入goods_distance  | 2km
 
 验证成功返回
@@ -220,6 +198,7 @@ goods_id(int) | 传入商品id  | 2
 
 ### 修改商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/edit
+
 数据传输方式：POST
 
 数据传输格式为：JSON
@@ -227,39 +206,18 @@ goods_id(int) | 传入商品id  | 2
 参数(类型) | 说明 | 示例
 ----|------|----
 goods_id(int) | 传入goods_id，可不填  | 1
-
-shop_id(int) | 传入shop_id，必填  | 1
-
+shop_id(int) | 传入shop_id，必填  | 
 cat_id(string) | 传入cat_id，必填  | 1
-
 goods_name(string) | 传入goods_name，必填   | 衬衫
-
 goods_price(int) | 传入goods_price，必填   | 84
-
 goods_click(int) | 传入goods_click  | 10
-
 goods_desc(string) | 传入goods_desc  | 这是衬衫
-
-goods_img(string) | 传入goods_img  | /public/static/img/1.jpg
-
+goods_img\[\](string) | 传入goods_img[],可多图上传  | /public/static/img/1.jpg
 is_on_sale(bool) | 传入is_on_sale  | 1
-
 sales_volume(string) | 传入sales_volume  | 100
-
 goods_location(string) | 传入goods_location  | goods_location
-
 goods_weight(string) | 传入goods_weight  | 50g
-
 goods_size(string) | 传入goods_size  | 100cm*100cm
-
-comment_num(int) | 传入comment_num  | 10
-
-good_comment_num(int) | 传入good_comment_num  | 8
-
-bad_comment_num(int) | 传入bad_comment_num  | 2
-
-middle_comment_num(int) | 传入middle_comment_num  | 0
-
 goods_distance(string) | 传入goods_distance  | 2km
 
 
@@ -283,7 +241,7 @@ goods_distance(string) | 传入goods_distance  | 2km
 
 参数(类型) | 说明 | 示例
 ----|------|----
-goods_id(int) | 传入商品id  | 2
+goods_id(int) | 传入商品id，查询多个商品，id之间用英文逗号隔开  | 1，2，3
 
 查询成功将返回
 
