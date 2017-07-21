@@ -132,3 +132,171 @@ verify(string) | 传入验证码  | 123456
 `{"code":1,"msg":"验证码已失效"}`
 
 
+
+## 商品的增删改查
+
+### 添加商品
+> http://123.206.18.103/Market_BE/public/index.php/admin/goods/add
+
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+
+参数(类型) | 说明 | 示例
+----|------|----
+
+goods_id(int) | 传入goods_id，可不填  | 1
+
+shop_id(int) | 传入shop_id，必填  | 1
+
+cat_id(string) | 传入cat_id，必填  | 1
+
+goods_name(string) | 传入goods_name，必填   | 衬衫
+
+goods_price(int) | 传入goods_price，必填   | 84
+
+goods_click(int) | 传入goods_click  | 10
+
+goods_desc(string) | 传入goods_desc  | 这是衬衫
+
+goods_img(string) | 传入goods_img  | /public/static/img/1.jpg
+
+is_on_sale(bool) | 传入is_on_sale  | 1
+
+sales_volume(string) | 传入sales_volume  | 100
+
+goods_location(string) | 传入goods_location  | goods_location
+
+goods_weight(string) | 传入goods_weight  | 50g
+
+goods_size(string) | 传入goods_size  | 100cm*100cm
+
+comment_num(int) | 传入comment_num  | 10
+
+good_comment_num(int) | 传入good_comment_num  | 8
+
+bad_comment_num(int) | 传入bad_comment_num  | 2
+
+middle_comment_num(int) | 传入middle_comment_num  | 0
+
+goods_distance(string) | 传入goods_distance  | 2km
+
+验证成功返回
+
+`{"code":0,"msg":"添加数据成功"}`
+
+验证失败返回
+
+`{"code":1,"msg":"失败提示信息"}`
+`{"code":2,"msg":"该商品id已存在！"}`
+
+
+
+### 删除商品
+> http://123.206.18.103/Market_BE/public/index.php/admin/goods/del
+
+数据传输方式为：POST
+
+数据传输格式为：JSON:
+
+参数(类型) | 说明 | 示例
+----|------|----
+goods_id(int) | 传入商品id  | 2
+
+删除成功将返回
+
+`
+{
+    "code": 0,
+    "msg":"删除成功"
+}
+`
+
+如果删除失败将返回
+
+`{"code":1,"msg":"删除失败，请稍后再试"}`
+
+
+### 修改商品
+> http://123.206.18.103/Market_BE/public/index.php/admin/goods/edit
+数据传输方式：POST
+
+数据传输格式为：JSON
+
+参数(类型) | 说明 | 示例
+----|------|----
+goods_id(int) | 传入goods_id，可不填  | 1
+
+shop_id(int) | 传入shop_id，必填  | 1
+
+cat_id(string) | 传入cat_id，必填  | 1
+
+goods_name(string) | 传入goods_name，必填   | 衬衫
+
+goods_price(int) | 传入goods_price，必填   | 84
+
+goods_click(int) | 传入goods_click  | 10
+
+goods_desc(string) | 传入goods_desc  | 这是衬衫
+
+goods_img(string) | 传入goods_img  | /public/static/img/1.jpg
+
+is_on_sale(bool) | 传入is_on_sale  | 1
+
+sales_volume(string) | 传入sales_volume  | 100
+
+goods_location(string) | 传入goods_location  | goods_location
+
+goods_weight(string) | 传入goods_weight  | 50g
+
+goods_size(string) | 传入goods_size  | 100cm*100cm
+
+comment_num(int) | 传入comment_num  | 10
+
+good_comment_num(int) | 传入good_comment_num  | 8
+
+bad_comment_num(int) | 传入bad_comment_num  | 2
+
+middle_comment_num(int) | 传入middle_comment_num  | 0
+
+goods_distance(string) | 传入goods_distance  | 2km
+
+
+修改成功将返回：
+
+`{"code":0,"msg":"修改数据成功"}`
+
+注册数据错误将返回例如
+
+`{"code":1,"msg":"修改数据失败的提示信息"}`
+`{"code":2,"msg":"请输入要修改商品的id"}`
+
+
+
+### 查询商品
+>http://123.206.18.103/Market_BE/public/index.php/admin/goods/show
+
+数据传输方式为：POST
+
+数据传输格式为：JSON:
+
+参数(类型) | 说明 | 示例
+----|------|----
+goods_id(int) | 传入商品id  | 2
+
+查询成功将返回
+
+`
+{"code":0,"goods_id":2,"shop_id":2,"cat_id":2,"goods_name":"\u957f\u88e4","goods_price":50,"goods_click":9,"goods_desc":"????","goods_img":"public\/image2","is_on_sale":1,"sales_volume":200,"goods_location":"mki","goods_weight":"200g","goods_size":"L,XL,XXL","comment_num":6,"good_comment_num":3,"bad_comment_num":2,"middle_comment_num":1,"goods_distance":"200m"}
+`
+
+如果查询失败将返回
+
+`{"code":1,"msg":"查询数据失败,请检查商品id是否存在，且稍后再试"}
+"code":2,"msg":"请输入商品id"}
+`
+
+
+
+
