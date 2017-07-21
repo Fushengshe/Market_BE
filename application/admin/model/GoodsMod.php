@@ -34,7 +34,7 @@ class GoodsMod extends Model
             'goods_distance' => input('goods_distance'),
         ];
         if(Db::table('goods')->where('goods_id',$data['goods_id'])->find()){
-            return json(['msg' => '该商品id已存在！']);
+            return json(['code'=>2,'msg' => '该商品id已存在！']);
         }elseif($data['goods_id'] == ''){
             $data =[
                 'shop_id' => input('shop_id'),
@@ -57,18 +57,18 @@ class GoodsMod extends Model
             ];
             $validate = \think\Loader::validate('Goods');
             if (!$validate->check($data)) {
-                return json(['msg'=>$validate->getError()]);
+                return json(['code'=>1,'msg'=>$validate->getError()]);
             }else{
                 Db::table('goods')->insert($data);
-                return json(['msg'=>'添加数据成功']);
+                return json(['code'=>0,'msg'=>'添加数据成功']);
             }
         }else{
             $validate = \think\Loader::validate('Goods');
             if (!$validate->check($data)) {
-                return json(['msg'=>$validate->getError()]);
+                return json(['code'=>1,'msg'=>$validate->getError()]);
             }else{
                 Db::table('goods')->insert($data);
-                return json(['msg'=>'添加数据成功']);
+                return json(['code'=>0,'msg'=>'添加数据成功']);
             }
         }
     }
@@ -95,15 +95,15 @@ class GoodsMod extends Model
             ];
             $validate = \think\Loader::validate('Goods');
             if (!$validate->check($data)) {
-                return json(['msg'=>$validate->getError()]);
+                return json(['code'=>1,'msg'=>$validate->getError()]);
             }else{
                 Db::table('goods')
                     ->where('goods_id', $id)
                     ->update($data);
-                return json(['msg'=>'修改数据成功']);
+                return json(['code'=>0,'msg'=>'修改数据成功']);
             }
         }else{
-            return json(['msg'=>'请输入要修改商品的id']);
+            return json(['code'=>2,'msg'=>'请输入要修改商品的id']);
         }
 
 
@@ -111,9 +111,9 @@ class GoodsMod extends Model
     public function del(){
         $id = input('goods_id');
         if(Db::table('goods')->where('goods_id',$id)->delete()){
-            return json(['msg'=>'删除成功']);
+            return json(['code'=>0,'msg'=>'删除成功']);
         }else{
-            return json(['msg'=>'删除失败，请稍后再试']);
+            return json(['code'=>1,'msg'=>'删除失败，请稍后再试']);
         }
 
 
@@ -121,12 +121,14 @@ class GoodsMod extends Model
     public function show(){
         if($id = input('goods_id')){
             if ($data = Db::table('goods')->where('goods_id',$id)->find()){
-               return json_encode($data);
+                $code = array('code'=>0);
+
+                return json_encode(array_merge($code,$data));
             }else{
-                return json(['msg'=>'查询数据失败,请检查商品id是否存在，且稍后再试']);
-        }
+                return json(['code'=>1,'msg'=>'查询数据失败,请检查商品id是否存在，且稍后再试']);
+            }
         }else{
-            return json(['msg'=>'请输入商品id']);
+            return json(['code'=>2,'msg'=>'请输入商品id']);
         }
 
     }
