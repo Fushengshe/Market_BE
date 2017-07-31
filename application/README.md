@@ -262,7 +262,8 @@ goods_id(int) | 传入商品id  | 1
   "shop_desc": "专业腌制万年老咸鱼，不咸不要钱",
   "shop_rate": 10,
   "goods_address": "南京路",
-  "goods_distance": 2344
+  "goods_distance": 2344,
+  "flag":0
 }
 `
 
@@ -271,6 +272,22 @@ goods_id(int) | 传入商品id  | 1
 `{"code":1,"msg":"查询数据失败,请检查商品id：是否存在，且稍后再试"}`
 `{"code":2,"msg":"请输入商品id"}`
 
+### 收藏商品
+>http://123.206.18.103/Market_BE/public/index.php/admin/goods/collect
 
+数据传输方式为：POST
 
+数据传输格式为：JSON:
 
+参数(类型) | 说明 | 示例
+----|------|----
+goods_id(int) | 传入商品id  | 1
+user_id(int) / 传入用户id / 17
+
+收藏成功将返回
+
+`{"code": 0,"msg": "收藏成功，收藏的商品id有:1,2,3"}`
+
+收藏失败将返回
+
+`{"code": 1,"msg":"收藏失败请稍候再试"}`

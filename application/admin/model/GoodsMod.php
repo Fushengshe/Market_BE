@@ -163,10 +163,12 @@ class GoodsMod extends Model
     }
     public function show()
     {
-        if ($id = input('goods_id')) {
-            if ($data = Db::table('goods')->where('goods_id', $id)->find()) {
+        if ($goods_id = input('goods_id')) {
+            $user_id = input('user_id');
+            if ($data = Db::table('goods')->where('goods_id', $goods_id)->find()) {
                 $code = array('code' => 0);
                 $shop_name = Db::table('shop')->where('shop_id', $data['shop_id'])->find();
+                $user = Db::table('user')->where('id',$user_id)->find();
                 $data2['goods_id'] = $data['goods_id'];
                 $data2['shop_name'] = $shop_name['shop_name'];
                 $data2['goods_name'] = $data['goods_name'];
@@ -179,6 +181,14 @@ class GoodsMod extends Model
                 $data2['shop_rate'] = $data['shop_rate'];
                 $data2['goods_address'] = $data['goods_address'];
                 $data2['goods_distance'] = $data['goods_distance'];
+                $data2['flag'] = 0;
+                $user_collect = explode(',',$user['goods_collect']);
+                for ($i=0;$i<sizeof($user_collect);$i++){
+                    if($goods_id == $user_collect[$i]){
+                        $data2['flag'] = 1;
+                        break;
+                    }
+                }
                 $msg= array_merge($code, $data2);
             } else {
                 return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $id . '是否存在，且稍后再试']);
@@ -218,10 +228,16 @@ class GoodsMod extends Model
 //        }
 //    }
     public function collect(){
-        $id = input('id');
+        $id = input('user_id');
         $goods_id = input('goods_id');
         $user = Db::table('user')->where('id', $id)->find();
         $user['goods_collect'] = $user['goods_collect'].','.$goods_id;
-        Db:;table('user')->where('id',$id)->update($user);
+        if (Db::table('user')->where('id',$id)->update($user)){
+            $code = ['code'=>0];
+
+            return json_encode(array_merge($code,['msg' =>'收藏成功，收藏的商品id有:'.$user['goods_collect']]));
+        }else{
+            return json_encode(['code'=>1,'msg'=>'收藏失败请稍候再试']);
+        }
     }
 }
