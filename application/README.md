@@ -146,19 +146,24 @@ verify(string) | 传入验证码  | 123456
 参数(类型) | 说明 | 示例
 ----|------|----
 goods_id(int) | 传入goods_id，可不填  | 1
-shop_id(int) | 传入shop_id，必填  | 1
+shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
+goods_desc(string) | 传入goods_desc   | 这是一条咸鱼
+goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
+goods_rate(int) | 传入goods_rate   | 10
+monthly_sales(int) | 传入monthly_sales   | 25
+goods_purchases(int) | 传入goods_purchases   | 50
 goods_price(int) | 传入goods_price，必填   | 84
-goods_click(int) | 传入goods_click  | 10
-goods_desc(string) | 传入goods_desc  | 这是衬衫
+goods_address(int) | 传入goods_address   | 南京路
+goods_distance(string) | 传入goods_distance  | 2km
 goods_img\[\](file) | 传入goods_img[],可上传多个图片  | /public/static/img/1.jpg
+goods_click(int) | 传入goods_click  | 10
 is_on_sale(bool) | 传入is_on_sale  | 1
 sales_volume(string) | 传入sales_volume  | 100
-goods_location(string) | 传入goods_location  | goods_location
 goods_weight(string) | 传入goods_weight  | 50g
 goods_size(string) | 传入goods_size  | 100cm*100cm
-goods_distance(string) | 传入goods_distance  | 2km
+
 
 验证成功返回
 
@@ -166,8 +171,9 @@ goods_distance(string) | 传入goods_distance  | 2km
 
 验证失败返回
 
-`{"code":1,"msg":"失败提示信息"}`
+`{"code":1,"msg":"validate验证失败提示信息"}`
 `{"code":2,"msg":"该商品id已存在！"}`
+`{"code":3,"msg":"商品图不能为空"}`
 
 
 
@@ -184,12 +190,7 @@ goods_id(int) | 传入商品id  | 2
 
 删除成功将返回
 
-`
-{
-    "code": 0,
-    "msg":"删除成功"
-}
-`
+`{"code": 0,"msg":"删除成功"}`
 
 如果删除失败将返回
 
@@ -205,20 +206,23 @@ goods_id(int) | 传入商品id  | 2
 
 参数(类型) | 说明 | 示例
 ----|------|----
-goods_id(int) | 传入goods_id，可不填  | 1
-shop_id(int) | 传入shop_id，必填  | 
+shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
+goods_desc(string) | 传入goods_desc   | 这是一条咸鱼
+goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
+goods_rate(int) | 传入goods_rate   | 10
+monthly_sales(int) | 传入monthly_sales   | 25
+goods_purchases(int) | 传入goods_purchases   | 50
 goods_price(int) | 传入goods_price，必填   | 84
+goods_address(int) | 传入goods_address   | 南京路
+goods_distance(string) | 传入goods_distance  | 2km
+goods_img\[\](file) | 传入goods_img[],可上传多个图片  | /public/static/img/1.jpg
 goods_click(int) | 传入goods_click  | 10
-goods_desc(string) | 传入goods_desc  | 这是衬衫
-goods_img\[\](string) | 传入goods_img[],可多图上传  | /public/static/img/1.jpg
 is_on_sale(bool) | 传入is_on_sale  | 1
 sales_volume(string) | 传入sales_volume  | 100
-goods_location(string) | 传入goods_location  | goods_location
 goods_weight(string) | 传入goods_weight  | 50g
 goods_size(string) | 传入goods_size  | 100cm*100cm
-goods_distance(string) | 传入goods_distance  | 2km
 
 
 修改成功将返回：
@@ -227,8 +231,9 @@ goods_distance(string) | 传入goods_distance  | 2km
 
 注册数据错误将返回例如
 
-`{"code":1,"msg":"修改数据失败的提示信息"}`
+`{"code":1,"msg":"validate验证失败提示信息"}`
 `{"code":2,"msg":"请输入要修改商品的id"}`
+`{"code":3,"msg":"商品图不能为空"}`
 
 
 
@@ -251,9 +256,8 @@ goods_id(int) | 传入商品id，查询多个商品，id之间用英文逗号隔
 
 如果查询失败将返回
 
-`{"code":1,"msg":"查询数据失败,请检查商品id是否存在，且稍后再试"}
-"code":2,"msg":"请输入商品id"}
-`
+`{"code":1,"msg":"查询数据失败,请检查商品id：是否存在，且稍后再试"}`
+`{"code":2,"msg":"请输入商品id"}`
 
 
 
