@@ -149,7 +149,6 @@ goods_id(int) | 传入goods_id，可不填  | 1
 shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
-goods_desc(string) | 传入goods_desc   | 这是一条咸鱼
 goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
 goods_rate(int) | 传入goods_rate   | 10
 monthly_sales(int) | 传入monthly_sales   | 25
@@ -209,7 +208,6 @@ goods_id(int) | 传入商品id  | 2
 shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
-goods_desc(string) | 传入goods_desc   | 这是一条咸鱼
 goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
 goods_rate(int) | 传入goods_rate   | 10
 monthly_sales(int) | 传入monthly_sales   | 25
@@ -251,7 +249,21 @@ goods_id(int) | 传入商品id，查询多个商品，id之间用英文逗号隔
 查询成功将返回
 
 `
-{"code":0,"goods_id":2,"shop_id":2,"cat_id":2,"goods_name":"\u957f\u88e4","goods_price":50,"goods_click":9,"goods_desc":"????","goods_img":"public\/image2","is_on_sale":1,"sales_volume":200,"goods_location":"mki","goods_weight":"200g","goods_size":"L,XL,XXL","comment_num":6,"good_comment_num":3,"bad_comment_num":2,"middle_comment_num":1,"goods_distance":"200m"}
+{
+  "code": 0,
+  "goods_id": 1,
+  "shop_name": "咸鱼店",
+  "goods_name": "大咸鱼",
+  "goods_detail": "bilibili老咸鱼",
+  "goods_rate": 10,
+  "monthly_sales": 66,
+  "goods_purchases": 666,
+  "goods_price": 123,
+  "shop_desc": "专业腌制万年老咸鱼，不咸不要钱",
+  "shop_rate": 10,
+  "goods_address": "南京路",
+  "goods_distance": 2344
+}
 `
 
 如果查询失败将返回

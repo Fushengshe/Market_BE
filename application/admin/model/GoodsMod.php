@@ -15,10 +15,9 @@ class GoodsMod extends Model
     public function add(){
         $data =[
             'goods_id' => input('goods_id'),
-            'shop_name' => input('shop_name'),
+            'shop_id' => input('shop_id'),
             'cat_id' => input('cat_id'),
             'goods_name' => input('goods_name'),
-            'goods_desc' => input('goods_desc'),
             'goods_detail' => input('goods_detail'),
             'goods_rate' => input('goods_rate'),
             'monthly_sales' => input('monthly_sales'),
@@ -41,10 +40,9 @@ class GoodsMod extends Model
             return json(['code'=>2,'msg' => '该商品id已存在！']);
         }elseif($data['goods_id'] == ''){
             $data =[
-                'shop_name' => input('shop_name'),
+                'shop_id' => input('shop_id'),
                 'cat_id' => input('cat_id'),
                 'goods_name' => input('goods_name'),
-                'goods_desc' => input('goods_desc'),
                 'goods_detail' => input('goods_detail'),
                 'goods_rate' => input('goods_rate'),
                 'monthly_sales' => input('monthly_sales'),
@@ -109,10 +107,9 @@ class GoodsMod extends Model
     public function edit(){
         if($id = input('goods_id')){
             $data =[
-                'shop_name' => input('shop_name'),
+                'shop_id' => input('shop_id'),
                 'cat_id' => input('cat_id'),
                 'goods_name' => input('goods_name'),
-                'goods_desc' => input('goods_desc'),
                 'goods_detail' => input('goods_detail'),
                 'goods_rate' => input('goods_rate'),
                 'monthly_sales' => input('monthly_sales'),
@@ -164,24 +161,67 @@ class GoodsMod extends Model
             return json(['code'=>1,'msg'=>'删除失败，请稍后再试']);
         }
     }
-
     public function show()
     {
-        if ($ids = input('goods_id')) {
-            $id = explode(',', $ids);
-            for ($i = 0; $i < sizeof($id); $i++) {
-                if ($data = Db::table('goods')->where('goods_id', $id[$i])->find()) {
-                    $code = array('code' => 0);
-                    $shop_name = Db::table('shop')->where('shop_id', $data['shop_name'])->find();
-                    $data['shop_name'] = $shop_name['shop_name'];
-                    $msg[$i] = array_merge($code, $data);
-                } else {
-                    return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $id[$i] . '是否存在，且稍后再试']);
-                }
+        if ($id = input('goods_id')) {
+            if ($data = Db::table('goods')->where('goods_id', $id)->find()) {
+                $code = array('code' => 0);
+                $shop_name = Db::table('shop')->where('shop_id', $data['shop_id'])->find();
+                $data2['goods_id'] = $data['goods_id'];
+                $data2['shop_name'] = $shop_name['shop_name'];
+                $data2['goods_name'] = $data['goods_name'];
+                $data2['goods_detail'] = $data['goods_detail'];
+                $data2['goods_rate'] = $data['goods_rate'];
+                $data2['monthly_sales'] = $data['monthly_sales'];
+                $data2['goods_purchases'] = $data['goods_purchases'];
+                $data2['goods_price'] = $data['goods_price'];
+                $data2['shop_desc'] = $data['shop_desc'];
+                $data2['shop_rate'] = $data['shop_rate'];
+                $data2['goods_address'] = $data['goods_address'];
+                $data2['goods_distance'] = $data['goods_distance'];
+                $msg= array_merge($code, $data2);
+            } else {
+                return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $id . '是否存在，且稍后再试']);
             }
-            return  json($msg) ;
+            return json($msg);
         } else {
             return json(['code' => 2, 'msg' => '请输入商品id']);
         }
+    }
+//    public function duoshow()
+//    {
+//        if ($ids = input('goods_id')) {
+//            $id = explode(',', $ids);
+//            for ($i = 0; $i < sizeof($id); $i++) {
+//                if ($data = Db::table('goods')->where('goods_id', $id[$i])->find()) {
+//                    $code = array('code' => 0);
+//                    $shop_name = Db::table('shop')->where('shop_id', $data['shop_id'])->find();
+//                    $data2['shop_name'] = $shop_name['shop_name'];
+//                    $data2['goods_name'] = $data['goods_name'];
+//                    $data2['goods_detail'] = $data['goods_detail'];
+//                    $data2['goods_rate'] = $data['goods_rate'];
+//                    $data2['monthly_sales'] = $data['monthly_sales'];
+//                    $data2['goods_purchases'] = $data['goods_purchases'];
+//                    $data2['goods_price'] = $data['goods_price'];
+//                    $data2['shop_desc'] = $data['shop_desc'];
+//                    $data2['shop_rate'] = $data['shop_rate'];
+//                    $data2['goods_address'] = $data['goods_address'];
+//                    $data2['goods_distance'] = $data['goods_distance'];
+//                    $msg[$i] = array_merge($code, $data2);
+//                } else {
+//                    return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $id[$i] . '是否存在，且稍后再试']);
+//                }
+//            }
+//            return  json($msg) ;
+//        } else {
+//            return json(['code' => 2, 'msg' => '请输入商品id']);
+//        }
+//    }
+    public function collect(){
+        $id = input('id');
+        $goods_id = input('goods_id');
+        $user = Db::table('user')->where('id', $id)->find();
+        $user['goods_collect'] = $user['goods_collect'].','.$goods_id;
+        Db:;table('user')->where('id',$id)->update($user);
     }
 }
