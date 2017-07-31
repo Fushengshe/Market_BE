@@ -244,7 +244,7 @@ goods_size(string) | 传入goods_size  | 100cm*100cm
 
 参数(类型) | 说明 | 示例
 ----|------|----
-goods_id(int) | 传入商品id，查询多个商品，id之间用英文逗号隔开  | 1，2，3
+goods_id(int) | 传入商品id  | 1
 
 查询成功将返回
 
