@@ -35,4 +35,8 @@ class Goods extends Controller
         $goods = new GoodsMod();
         return $goods->show();
     }
+    public function collect(){
+        $goods = new GoodsMod();
+        return $goods->collect();
+    }
 }
