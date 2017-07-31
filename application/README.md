@@ -282,7 +282,7 @@ goods_id(int) | 传入商品id  | 1
 参数(类型) | 说明 | 示例
 ----|------|----
 goods_id(int) | 传入商品id  | 1
-user_id(int) / 传入用户id / 17
+user_id(int) | 传入用户id | 17
 
 收藏成功将返回
 
