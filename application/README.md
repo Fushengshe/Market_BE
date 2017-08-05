@@ -249,21 +249,21 @@ goods_id(int) | 传入商品id  | 1
 查询成功将返回
 
 `
-{
-  "code": 0,
-  "goods_id": 1,
-  "shop_name": "咸鱼店",
-  "goods_name": "大咸鱼",
-  "goods_detail": "bilibili老咸鱼",
-  "goods_rate": 10,
-  "monthly_sales": 66,
-  "goods_purchases": 666,
-  "goods_price": 123,
-  "shop_desc": "专业腌制万年老咸鱼，不咸不要钱",
-  "shop_rate": 10,
-  "goods_address": "南京路",
-  "goods_distance": 2344,
-  "flag":0
+{`<br>`
+  "code": 0,`<br>`
+  "goods_id": 1,`<br>`
+  "shop_name": "咸鱼店",`<br>`
+  "goods_name": "大咸鱼",`<br>`
+  "goods_detail": "bilibili老咸鱼",`<br>`
+  "goods_rate": 10,`<br>`
+  "monthly_sales": 66,`<br>`
+  "goods_purchases": 666,`<br>`
+  "goods_price": 123,`<br>`
+  "shop_desc": "专业腌制万年老咸鱼，不咸不要钱",`<br>`
+  "shop_rate": 10,`<br>`
+  "goods_address": "南京路",`<br>`
+  "goods_distance": 2344,`<br>`
+  "flag":0`<br>`
 }
 `
 
