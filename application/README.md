@@ -63,6 +63,7 @@ password(string) | 传入密码  | 123456
 
 ### 用户注册
 > http://123.206.18.103/Market_BE/public/index.php/admin/auth/register
+
 数据传输方式：POST
 
 数据传输格式为：JSON
@@ -138,7 +139,7 @@ verify(string) | 传入验证码  | 123456
 ### 添加商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/add
 
-数据传输方式：POST
+数据传输方式：GET
 
 数据传输格式为：JSON
 
@@ -179,7 +180,7 @@ goods_size(string) | 传入goods_size  | 100cm*100cm
 ### 删除商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/del
 
-数据传输方式为：POST
+数据传输方式为：GET
 
 数据传输格式为：JSON:
 
@@ -199,7 +200,7 @@ goods_id(int) | 传入商品id  | 2
 ### 修改商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/edit
 
-数据传输方式：POST
+数据传输方式：GET
 
 数据传输格式为：JSON
 
@@ -238,7 +239,7 @@ goods_size(string) | 传入goods_size  | 100cm*100cm
 ### 查询商品
 >http://123.206.18.103/Market_BE/public/index.php/admin/goods/show
 
-数据传输方式为：POST
+数据传输方式为：GET
 
 数据传输格式为：JSON:
 
@@ -275,7 +276,7 @@ goods_id(int) | 传入商品id  | 1
 ### 收藏商品
 >http://123.206.18.103/Market_BE/public/index.php/admin/goods/collect
 
-数据传输方式为：POST
+数据传输方式为：GET
 
 数据传输格式为：JSON:
 

@@ -191,7 +191,7 @@ class GoodsMod extends Model
                 }
                 $msg= array_merge($code, $data2);
             } else {
-                return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $id . '是否存在，且稍后再试']);
+                return json(['code' => 1, 'msg' => '查询数据失败,请检查商品id：' . $goods_id . '是否存在，且稍后再试']);
             }
             return json($msg);
         } else {
