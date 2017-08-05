@@ -139,7 +139,7 @@ verify(string) | 传入验证码  | 123456
 ### 添加商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/add
 
-数据传输方式：GET
+数据传输方式：POST
 
 数据传输格式为：JSON
 
@@ -147,7 +147,7 @@ verify(string) | 传入验证码  | 123456
 参数(类型) | 说明 | 示例
 ----|------|----
 goods_id(int) | 传入goods_id，可不填  | 1
-shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
+shop_id(int) | 传入shop_id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
 goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
@@ -174,13 +174,14 @@ goods_size(string) | 传入goods_size  | 100cm*100cm
 `{"code":1,"msg":"validate验证失败提示信息"}`
 `{"code":2,"msg":"该商品id已存在！"}`
 `{"code":3,"msg":"商品图不能为空"}`
+`{"code":4,"msg":"数据传输方法错误"}`
 
 
 
 ### 删除商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/del
 
-数据传输方式为：GET
+数据传输方式为：DELETE
 
 数据传输格式为：JSON:
 
@@ -195,18 +196,19 @@ goods_id(int) | 传入商品id  | 2
 如果删除失败将返回
 
 `{"code":1,"msg":"删除失败，请稍后再试"}`
+`{"code":4,"msg":"数据传输方法错误"}`
 
 
 ### 修改商品
 > http://123.206.18.103/Market_BE/public/index.php/admin/goods/edit
 
-数据传输方式：GET
+数据传输方式：POST
 
 数据传输格式为：JSON
 
 参数(类型) | 说明 | 示例
 ----|------|----
-shop_name(int) | 传入shop_id，必填,为方便将id改为name，实际意义还是id  | 1
+shop_id(int) | 传入shop_id  | 1
 cat_id(string) | 传入cat_id，必填  | 1
 goods_name(string) | 传入goods_name，必填   | 衬衫
 goods_detail(string) | 传入goods_detail   | 这是一条'大'咸鱼
@@ -233,6 +235,7 @@ goods_size(string) | 传入goods_size  | 100cm*100cm
 `{"code":1,"msg":"validate验证失败提示信息"}`
 `{"code":2,"msg":"请输入要修改商品的id"}`
 `{"code":3,"msg":"商品图不能为空"}`
+`{"code":4,"msg":"数据传输方法错误"}`
 
 
 
@@ -276,7 +279,7 @@ goods_id(int) | 传入商品id  | 1
 ### 收藏商品
 >http://123.206.18.103/Market_BE/public/index.php/admin/goods/collect
 
-数据传输方式为：GET
+数据传输方式为：POST
 
 数据传输格式为：JSON:
 
@@ -292,3 +295,4 @@ user_id(int) | 传入用户id | 17
 收藏失败将返回
 
 `{"code": 1,"msg":"收藏失败请稍候再试"}`
+`{"code":4,"msg":"数据传输方法错误"}`
