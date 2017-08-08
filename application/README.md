@@ -298,9 +298,12 @@ user_id(int) | 传入用户id | 17
 `{"code":4,"msg":"数据传输方法错误"}`
 
 ##购物清单
+
 ###查询购物清单
 > http://123.206.18.103/Market_BE/public/index.php/shop/cart/showcart?mobile=13223346690
+
 数据传输方式：GET
+
 数据传输格式为：JSON
 
 参数(类型) | 说明 | 示例
@@ -533,8 +536,10 @@ mobile(string) | 传入用户手机号  | 13223346690
 
 
 ##商户
+
 ###查询我的商户
 > http://123.206.18.103/Market_BE/public/index.php/shop/shop/showshop?shop_id=1
+
 数据传输方式：GET
 
 数据传输格式为：JSON
